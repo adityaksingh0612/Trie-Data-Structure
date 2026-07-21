@@ -55,7 +55,7 @@ public:
     return true;
     }
 
-    void remove(int num) {
+    void removeNumber(int num) {
     if (!search(num))
         return;
 
@@ -101,6 +101,18 @@ public:
     }
 };
 
+string suffix(int k) {
+    if (k % 100 >= 11 && k % 100 <= 13)
+        return "th";
+
+    switch (k % 10) {
+        case 1: return "st";
+        case 2: return "nd";
+        case 3: return "rd";
+        default: return "th";
+    }
+}
+
 int main() {
     BinaryTrie trie;
     int choice, num, k;
@@ -134,7 +146,7 @@ int main() {
             case 3:
                 cout << "Enter number: ";
                 cin >> num;
-                trie.remove(num);
+                trie.removeNumber(num);
                 cout << "Removed successfully.\n";
                 break;
 
@@ -145,7 +157,7 @@ int main() {
                 if (k < 1 || k > trie.totalElements()) {
                     cout << "Invalid value of k.\n";
                 } else {
-                    cout << k << "th Smallest = " << trie.kthSmallest(k) << endl;
+                    cout << k << suffix(k) << " Smallest = " << trie.kthSmallest(k) << endl;
                 }
                 break;
 
@@ -156,7 +168,7 @@ int main() {
                 if (k < 1 || k > trie.totalElements()) {
                     cout << "Invalid value of k.\n";
                 } else {
-                    cout << k << "th Largest = " << trie.kthLargest(k) << endl;
+                    cout << k << suffix(k) << " Largest = " << trie.kthLargest(k) << endl;
                 }
                 break;
 
