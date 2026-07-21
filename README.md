@@ -18,6 +18,14 @@ A C++ implementation of a **Binary Trie** supporting efficient integer operation
 
 ---
 
+## Demo
+
+### Console Application
+
+![Binary Trie Demo](screenshots/menu.png)
+
+___
+
 ## Tech Stack
 
 - C++

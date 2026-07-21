@@ -105,15 +105,16 @@ int main() {
     BinaryTrie trie;
     int choice, num, k;
 
+    cout << "===== Binary Trie Menu =====\n";
+    cout << "1. Insert\n";
+    cout << "2. Search\n";
+    cout << "3. Remove\n";
+    cout << "4. Kth Smallest\n";
+    cout << "5. Kth Largest\n";
+    cout << "6. Exit\n";
+
     while (true) {
-        cout << "\n===== Binary Trie Menu =====\n";
-        cout << "1. Insert\n";
-        cout << "2. Search\n";
-        cout << "3. Remove\n";
-        cout << "4. Kth Smallest\n";
-        cout << "5. Kth Largest\n";
-        cout << "6. Exit\n";
-        cout << "Enter choice: ";
+        cout << "\nEnter choice: ";
         cin >> choice;
 
         switch (choice) {
@@ -140,13 +141,23 @@ int main() {
             case 4:
                 cout << "Enter k: ";
                 cin >> k;
-                cout << k << "th Smallest = " << trie.kthSmallest(k) << endl;
+
+                if (k < 1 || k > trie.totalElements()) {
+                    cout << "Invalid value of k.\n";
+                } else {
+                    cout << k << "th Smallest = " << trie.kthSmallest(k) << endl;
+                }
                 break;
 
             case 5:
                 cout << "Enter k: ";
                 cin >> k;
-                cout << k << "th Largest = " << trie.kthLargest(k) << endl;
+
+                if (k < 1 || k > trie.totalElements()) {
+                    cout << "Invalid value of k.\n";
+                } else {
+                    cout << k << "th Largest = " << trie.kthLargest(k) << endl;
+                }
                 break;
 
             case 6:
